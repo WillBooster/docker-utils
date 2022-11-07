@@ -1,2 +1,2 @@
 # docker-utils
-:recycle: A repository for reusing shell scripts across multiple projects.
+:recycle: A repository for reusing shell scripts for docker across multiple projects.
