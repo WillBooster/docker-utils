@@ -1,6 +1,7 @@
 #!/bin/bash
 
-curl https://raw.githubusercontent.com/WillBooster/docker-utils/main/bash/set-versions.sh | bash \
+curl -O https://raw.githubusercontent.com/WillBooster/docker-utils/main/bash/set-versions.sh \
+  && source set-versions.sh \
   && apt-get install -qq -y wget \
   && wget --quiet https://github.com/benbjohnson/litestream/releases/download/v${LITESTREAM_VERSION}/litestream-v${LITESTREAM_VERSION}-linux-${ARCH}.deb \
   && dpkg-reconfigure debconf -f noninteractive -p critical \
