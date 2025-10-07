@@ -9,7 +9,8 @@ apt-get -qq install -y --no-install-recommends curl \
   && if [ "$(printf '%s\n' "0.5.0" "${LITESTREAM_VERSION}" | sort -V | head -n1)" = "0.5.0" ]; then \
     DEB_FILE="litestream-${LITESTREAM_VERSION}-linux-${ARCH}.deb"; \
   else \
-    [ "$ARCH" = "arm64" ] || ARCH="amd64" && DEB_FILE="litestream-v${LITESTREAM_VERSION}-linux-${ARCH}.deb"; \
+    [ "$ARCH" = "arm64" ] || ARCH="amd64"; \
+    DEB_FILE="litestream-v${LITESTREAM_VERSION}-linux-${ARCH}.deb"; \
   fi \
   && curl -sLO https://github.com/benbjohnson/litestream/releases/download/v${LITESTREAM_VERSION}/${DEB_FILE} \
   && dpkg-reconfigure debconf -f noninteractive -p critical \
