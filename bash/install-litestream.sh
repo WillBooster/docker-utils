@@ -9,5 +9,7 @@ apt-get -qq install -y --no-install-recommends curl \
   && curl -sLO https://github.com/benbjohnson/litestream/releases/download/v${LITESTREAM_VERSION}/${DEB_FILE} \
   && dpkg-reconfigure debconf -f noninteractive -p critical \
   && dpkg -i ${DEB_FILE} \
+  && curl -fsSL https://raw.githubusercontent.com/WillBooster/docker-utils/refs/heads/main/bash/run-litestream.sh -o /usr/local/bin/run-litestream.sh \
+  && chmod +x /usr/local/bin/run-litestream.sh \
   && litestream version \
   && rm -f ${DEB_FILE}
